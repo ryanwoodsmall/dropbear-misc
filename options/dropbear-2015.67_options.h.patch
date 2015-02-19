@@ -1,5 +1,5 @@
---- options.h.ORIG	2014-08-01 22:34:42.363782196 +0000
-+++ options.h	2014-08-01 22:36:52.477784269 +0000
+--- options.h.ORIG	2015-02-17 15:09:31.175882334 -0600
++++ options.h	2015-02-17 15:10:08.771072891 -0600
 @@ -11,7 +11,7 @@
  /* IMPORTANT: Many options will require "make clean" after changes */
  
@@ -35,27 +35,20 @@
  
  /* Enable X11 Forwarding - server only */
  #define ENABLE_X11FWD
-@@ -94,7 +94,7 @@
+@@ -94,9 +94,9 @@
  #define DROPBEAR_3DES
  #define DROPBEAR_AES256
  /* Compiling in Blowfish will add ~6kB to runtime heap memory usage */
 -/*#define DROPBEAR_BLOWFISH*/
+-/*#define DROPBEAR_TWOFISH256*/
+-/*#define DROPBEAR_TWOFISH128*/
 +#define DROPBEAR_BLOWFISH
- #define DROPBEAR_TWOFISH256
- #define DROPBEAR_TWOFISH128
++#define DROPBEAR_TWOFISH256
++#define DROPBEAR_TWOFISH128
  
-@@ -123,8 +123,8 @@
-  * which are not the standard form. */
- #define DROPBEAR_SHA1_HMAC
- #define DROPBEAR_SHA1_96_HMAC
--/*#define DROPBEAR_SHA2_256_HMAC*/
--/*#define DROPBEAR_SHA2_512_HMAC*/
-+#define DROPBEAR_SHA2_256_HMAC
-+#define DROPBEAR_SHA2_512_HMAC
- #define DROPBEAR_MD5_HMAC
- 
- /* You can also disable integrity. Don't bother disabling this if you're
-@@ -192,7 +192,7 @@
+ /* Enable CBC mode for ciphers. This has security issues though
+  * is the most compatible with older SSH implementations */
+@@ -201,7 +201,7 @@
   * PAM challenge/response.
   * You can't enable both PASSWORD and PAM. */
  
@@ -64,7 +57,7 @@
  /* PAM requires ./configure --enable-pam */
  /*#define ENABLE_SVR_PAM_AUTH */
  #define ENABLE_SVR_PUBKEY_AUTH
-@@ -276,12 +276,12 @@
+@@ -289,12 +289,12 @@
  
  /* This is used by the scp binary when used as a client binary. If you're
   * not using the Dropbear client, you'll need to change it */
@@ -79,7 +72,7 @@
  
  /* Window size limits. These tend to be a trade-off between memory
     usage and network performance: */
-@@ -318,7 +318,7 @@
+@@ -331,7 +331,7 @@
  #define DEFAULT_IDLE_TIMEOUT 0
  
  /* The default path. This will often get replaced by the shell */
