@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ./configure \
-  --prefix=/usr \
+  --prefix=/opt/dropbear/`basename ${PWD}` \
   --disable-lastlog \
   --disable-utmp \
   --disable-utmpx \
@@ -12,4 +12,5 @@
   --enable-bundled-libtom \
   --disable-pam \
   --disable-zlib \
-    CC=/usr/local/musl/bin/musl-gcc
+    CC="/usr/local/musl/bin/musl-gcc" \
+    LDFLAGS="-static"
