@@ -12,5 +12,7 @@
   --enable-bundled-libtom \
   --disable-pam \
   --disable-zlib \
-    CC="/usr/local/musl/bin/musl-gcc" \
+  --enable-static \
+    CC="musl-gcc" \
+    CFLAGS="-Wl,-static" \
     LDFLAGS="-static"
