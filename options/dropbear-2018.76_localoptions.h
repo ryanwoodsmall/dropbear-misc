@@ -1,7 +1,7 @@
 #define DROPBEAR_DEFPORT "2222"
-#define DSS_PRIV_FILENAME "/opt/dropbear/etc/dropbear/dropbear_dss_host_key"
-#define RSA_PRIV_FILENAME "/opt/dropbear/etc/dropbear/dropbear_rsa_host_key"
-#define ECDSA_PRIV_FILENAME "/opt/dropbear/etc/dropbear/dropbear_ecdsa_host_key"
+#define DSS_PRIV_FILENAME "/opt/dropbear/etc/dropbear_dss_host_key"
+#define RSA_PRIV_FILENAME "/opt/dropbear/etc/dropbear_rsa_host_key"
+#define ECDSA_PRIV_FILENAME "/opt/dropbear/etc/dropbear_ecdsa_host_key"
 #define DROPBEAR_SMALL_CODE 0
 #define DROPBEAR_BLOWFISH 1
 #define DROPBEAR_SVR_PASSWORD_AUTH 0
