@@ -2,9 +2,12 @@
 %define	instdir		/opt/%{spname}
 %define	profiled	%{_sysconfdir}/profile.d
 
+%define	libzver		1.2.8.2015.12.26
+%define	libzdir		libz-%{libzver}
+
 Name:		%{spname}-musl-static
 Version:	2018.76
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -12,6 +15,7 @@ License:	MIT
 URL:		https://matt.ucc.asn.au/dropbear/dropbear.html
 Source0:	https://matt.ucc.asn.au/dropbear/releases/%{spname}-%{version}.tar.bz2
 Source1:	https://raw.githubusercontent.com/ryanwoodsmall/%{spname}-misc/master/options/%{spname}-%{version}_localoptions.h
+Source2:	https://sortix.org/libz/release/libz-%{libzver}.tar.gz
 
 BuildRequires:	musl-static >= 1.1.19-0
 BuildRequires:	gcc
@@ -36,6 +40,20 @@ Dropbear is particularly useful for "embedded"-type Linux (or other Unix) system
 
 
 %build
+tar -zxf %{SOURCE2}
+cd %{libzdir}
+./configure \
+  --prefix=`pwd`-built \
+  --enable-shared=no \
+  --disable-shared \
+  --enable-static \
+  --enable-static=yes \
+    CC="musl-gcc" \
+    CFLAGS="-Wl,-static" \
+    LDFLAGS="-static"
+make %{?_smp_mflags}
+make install
+cd ..
 cp %{SOURCE1} localoptions.h
 ./configure \
   --prefix=%{instdir} \
@@ -48,7 +66,7 @@ cp %{SOURCE1} localoptions.h
   --disable-pututxline \
   --enable-bundled-libtom \
   --disable-pam \
-  --disable-zlib \
+  --with-zlib=`pwd`/%{libzdir}-built \
   --enable-static \
     CC="musl-gcc" \
     CFLAGS="-Wl,-static" \
