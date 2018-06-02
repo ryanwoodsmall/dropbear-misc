@@ -7,7 +7,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2018.76
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -55,6 +55,7 @@ make %{?_smp_mflags}
 make install
 cd ..
 cp %{SOURCE1} localoptions.h
+sed -i.ORIG 's#/current/#/#g' localoptions.h
 ./configure \
   --prefix=%{instdir} \
   --disable-lastlog \
@@ -91,5 +92,11 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Sat Jun  2 2018 ryan woodsmall <rwoodsmall@gmail.com>
+- remove ../current/.. from /opt/dropbear path during rpm build
+
+* Wed May 30 2018 ryan woodsmall <rwoodsmall@gmail.com>
+- add static sortix libz for compression support
+
 * Tue Feb 27 2018 ryan woodsmall <rwoodsmall@gmail.com>
 - dropbear spec
