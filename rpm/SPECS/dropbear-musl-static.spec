@@ -7,7 +7,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2018.76
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -92,6 +92,10 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Tue Jun 12 2018 ryan woodsmall <rwoodsmall@gmail.com>
+- enable password auth
+- add /usr/local/bin and /opt/dropbear/current/bin to default path
+
 * Sat Jun  2 2018 ryan woodsmall <rwoodsmall@gmail.com>
 - remove ../current/.. from /opt/dropbear path during rpm build
 
