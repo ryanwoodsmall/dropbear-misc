@@ -7,7 +7,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2018.76
-Release:	4%{?dist}
+Release:	5%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -93,6 +93,7 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 %changelog
 * Tue Jun 12 2018 ryan woodsmall <rwoodsmall@gmail.com>
+- enable twofish and dh group 16 kex/pki/encryption settings
 - enable password auth
 - add /usr/local/bin and /opt/dropbear/current/bin to default path
 
