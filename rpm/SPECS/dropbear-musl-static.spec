@@ -7,7 +7,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2018.76
-Release:	5%{?dist}
+Release:	6%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -77,6 +77,7 @@ make %{?_smp_mflags} MULTI=1 SCPPROGRESS=1 PROGRAMS="dropbear dbclient dropbeark
 
 %install
 make install MULTI=1 SCPPROGRESS=1 PROGRAMS="dropbear dbclient dropbearkey dropbearconvert scp" DESTDIR="%{buildroot}"
+ln -sf %{instdir}/bin/dbclient %{buildroot}%{instdir}/bin/ssh
 mkdir -p %{buildroot}%{instdir}/etc
 mkdir -p %{buildroot}%{profiled}
 echo 'export PATH="${PATH}:%{instdir}/sbin"' >  %{buildroot}%{profiled}/%{name}.sh
@@ -92,6 +93,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Thu Jul 19 2018 ryan woodsmall <rwoodsmall@gmail.com>
+- include symlink for bin/ssh
+
 * Tue Jun 12 2018 ryan woodsmall <rwoodsmall@gmail.com>
 - enable twofish and dh group 16 kex/pki/encryption settings
 - enable password auth
