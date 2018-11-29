@@ -7,7 +7,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2018.76
-Release:	7%{?dist}
+Release:	8%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -20,6 +20,7 @@ Source2:	https://sortix.org/libz/release/libz-%{libzver}.tar.gz
 BuildRequires:	musl-static >= 1.1.20-0
 BuildRequires:	gcc
 BuildRequires:	make
+BuildRequires:	which
 
 Obsoletes:	%{spname}
 Conflicts:	%{spname}
@@ -93,6 +94,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Thu Nov 29 2018 ryan woodsmall <rwoodsmall@gmail.com>
+- libz requires which
+
 * Tue Sep 11 2018 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.1.20
 
