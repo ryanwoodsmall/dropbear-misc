@@ -7,7 +7,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2018.76
-Release:	8%{?dist}
+Release:	9%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -22,8 +22,8 @@ BuildRequires:	gcc
 BuildRequires:	make
 BuildRequires:	which
 
-Obsoletes:	%{spname}
-Conflicts:	%{spname}
+#Obsoletes:	%{spname}
+#Conflicts:	%{spname}
 
 Provides:	%{spname}
 Provides:	%{name}
@@ -94,6 +94,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Thu Dec  6 2018 ryan woodsmall <rwoodsmall@gmail.com>
+- disable Obsoletes/Conflicts - cause package-cleanup to report problems
+
 * Thu Nov 29 2018 ryan woodsmall <rwoodsmall@gmail.com>
 - libz requires which
 
