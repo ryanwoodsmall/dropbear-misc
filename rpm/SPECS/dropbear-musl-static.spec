@@ -17,7 +17,7 @@ Source0:	https://matt.ucc.asn.au/dropbear/releases/%{spname}-%{version}.tar.bz2
 Source1:	https://raw.githubusercontent.com/ryanwoodsmall/%{spname}-misc/master/options/%{spname}-%{version}_localoptions.h
 Source2:	https://sortix.org/libz/release/libz-%{libzver}.tar.gz
 
-BuildRequires:	musl-static >= 1.1.20-0
+BuildRequires:	musl-static >= 1.1.21-0
 BuildRequires:	gcc
 BuildRequires:	make
 BuildRequires:	which
