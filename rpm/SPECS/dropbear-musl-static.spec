@@ -7,7 +7,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2018.76
-Release:	9%{?dist}
+Release:	10%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -94,6 +94,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Tue Jan 22 2019 ryan woodsmall <rwoodsmall@gmail.com>
+- release bump for musl 1.1.21
+
 * Thu Dec  6 2018 ryan woodsmall <rwoodsmall@gmail.com>
 - disable Obsoletes/Conflicts - cause package-cleanup to report problems
 
