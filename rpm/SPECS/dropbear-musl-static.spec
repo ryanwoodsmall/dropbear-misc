@@ -5,9 +5,11 @@
 %define	libzver		1.2.8.2015.12.26
 %define	libzdir		libz-%{libzver}
 
+%define	debug_package	%{nil}
+
 Name:		%{spname}-musl-static
 Version:	2019.77
-Release:	10%{?dist}
+Release:	11%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -96,6 +98,7 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 %changelog
 * Sat Mar 23 2019 ryan woodsmall <rwoodsmall@gmail.com>
 - dropbear 2019.77
+- release bump for debuginfo disablement
 
 * Tue Jan 22 2019 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.1.21
