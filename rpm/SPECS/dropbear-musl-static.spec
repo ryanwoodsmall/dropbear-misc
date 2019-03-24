@@ -6,7 +6,7 @@
 %define	libzdir		libz-%{libzver}
 
 Name:		%{spname}-musl-static
-Version:	2018.76
+Version:	2019.77
 Release:	10%{?dist}
 Summary:	%{spname} compiled with musl-static
 
@@ -94,6 +94,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Sat Mar 23 2019 ryan woodsmall <rwoodsmall@gmail.com>
+- dropbear 2019.77
+
 * Tue Jan 22 2019 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.1.21
 
