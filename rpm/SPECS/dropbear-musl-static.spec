@@ -9,7 +9,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2019.77
-Release:	11%{?dist}
+Release:	12%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -18,6 +18,7 @@ URL:		https://matt.ucc.asn.au/dropbear/dropbear.html
 Source0:	https://matt.ucc.asn.au/dropbear/releases/%{spname}-%{version}.tar.bz2
 Source1:	https://raw.githubusercontent.com/ryanwoodsmall/%{spname}-misc/master/options/%{spname}-%{version}_localoptions.h
 Source2:	https://sortix.org/libz/release/libz-%{libzver}.tar.gz
+Patch0:		https://github.com/mkj/%{spname}/commit/7bc6280613f5ab4ee86c14c779739070e5784dfe.patch
 
 BuildRequires:	musl-static >= 1.1.21-0
 BuildRequires:	gcc
@@ -40,7 +41,7 @@ Dropbear is particularly useful for "embedded"-type Linux (or other Unix) system
 
 %prep
 %setup -q -n %{spname}-%{version}
-
+%patch0 -p1
 
 %build
 tar -zxf %{SOURCE2}
@@ -96,6 +97,10 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Mon Mar 25 2019 ryan woodsmall <rwoodsmall@gmail.com>
+- patch for tty restoration
+- https://lists.ucc.gu.uwa.edu.au/pipermail/dropbear/2019q1/002157.html
+
 * Sat Mar 23 2019 ryan woodsmall <rwoodsmall@gmail.com>
 - dropbear 2019.77
 - release bump for debuginfo disablement
