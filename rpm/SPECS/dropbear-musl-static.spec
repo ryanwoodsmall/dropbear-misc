@@ -9,7 +9,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2019.78
-Release:	12%{?dist}
+Release:	13%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -19,7 +19,7 @@ Source0:	https://matt.ucc.asn.au/dropbear/releases/%{spname}-%{version}.tar.bz2
 Source1:	https://raw.githubusercontent.com/ryanwoodsmall/%{spname}-misc/master/options/%{spname}-%{version}_localoptions.h
 Source2:	https://sortix.org/libz/release/libz-%{libzver}.tar.gz
 
-BuildRequires:	musl-static >= 1.1.21-0
+BuildRequires:	musl-static >= 1.1.22-0
 BuildRequires:	gcc
 BuildRequires:	make
 BuildRequires:	which
@@ -95,6 +95,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Thu Apr 11 2019 ryan woodsmall <rwoodsmall@gmail.com>
+- release bump for musl 1.1.22
+
 * Wed Mar 27 2019 ryan woodsmall <rwoodsmall@gmail.com>
 - dropbear 2019.78
 - remove unnecessary patch(es)
