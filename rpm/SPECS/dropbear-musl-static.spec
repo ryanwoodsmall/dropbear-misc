@@ -9,7 +9,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2019.78
-Release:	14%{?dist}
+Release:	15%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -19,7 +19,7 @@ Source0:	https://matt.ucc.asn.au/dropbear/releases/%{spname}-%{version}.tar.bz2
 Source1:	https://raw.githubusercontent.com/ryanwoodsmall/%{spname}-misc/master/options/%{spname}-%{version}_localoptions.h
 Source2:	https://sortix.org/libz/release/libz-%{libzver}.tar.gz
 
-BuildRequires:	musl-static >= 1.1.23-0
+BuildRequires:	musl-static >= 1.1.24-0
 BuildRequires:	gcc
 BuildRequires:	make
 BuildRequires:	which
@@ -95,6 +95,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Sat Oct 26 2019 ryan woodsmall <rwoodsmall@gmail.com>
+- release bump for musl 1.1.24
+
 * Wed Jul 17 2019 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.1.23
 
