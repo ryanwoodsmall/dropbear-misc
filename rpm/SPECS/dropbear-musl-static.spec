@@ -9,7 +9,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2019.78
-Release:	15%{?dist}
+Release:	16%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -95,6 +95,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Fri Mar 20 2020 ryan woodsmall <rwoodsmall@gmail.com>
+- release bump for sftp-server config
+
 * Sat Oct 26 2019 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.1.24
 

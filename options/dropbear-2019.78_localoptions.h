@@ -14,3 +14,4 @@
 #define LOG_COMMANDS 1
 #define DEFAULT_KEEPALIVE 30
 #define DEFAULT_PATH "/usr/local/bin:/usr/bin:/bin:/opt/dropbear/current/bin"
+#define SFTPSERVER_PATH "/usr/libexec/openssh/sftp-server"
