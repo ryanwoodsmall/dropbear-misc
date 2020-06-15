@@ -8,7 +8,7 @@
 %define	debug_package	%{nil}
 
 Name:		%{spname}-musl-static
-Version:	2019.78
+Version:	2020.79
 Release:	16%{?dist}
 Summary:	%{spname} compiled with musl-static
 
@@ -74,7 +74,7 @@ sed -i.ORIG 's#/current/#/#g' localoptions.h
     CC="musl-gcc" \
     CFLAGS="-Wl,-static" \
     LDFLAGS="-static"
-make %{?_smp_mflags} MULTI=1 SCPPROGRESS=1 PROGRAMS="dropbear dbclient dropbearkey dropbearconvert scp" 
+make %{?_smp_mflags} MULTI=1 SCPPROGRESS=1 PROGRAMS="dropbear dbclient dropbearkey dropbearconvert scp"
 
 
 %install
@@ -95,6 +95,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Mon Jun 15 2020 ryan woodsmall <rwoodsmall@gmail.com>
+- dropbear 2020.79
+
 * Fri Mar 20 2020 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for sftp-server config
 
