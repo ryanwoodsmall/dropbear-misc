@@ -9,7 +9,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2020.79
-Release:	16%{?dist}
+Release:	17%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -95,6 +95,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Tue Jun 16 2020 ryan woodsmall <rwoodsmall@gmail.com>
+- release bump for new ED25519_PRIV_FILENAME option
+
 * Mon Jun 15 2020 ryan woodsmall <rwoodsmall@gmail.com>
 - dropbear 2020.79
 
