@@ -8,7 +8,7 @@
 %define	debug_package	%{nil}
 
 Name:		%{spname}-musl-static
-Version:	2020.79
+Version:	2020.80
 Release:	17%{?dist}
 Summary:	%{spname} compiled with musl-static
 
@@ -95,6 +95,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Fri Jun 27 2020 ryan woodsmall <rwoodsmall@gmail.com>
+- dropbear 2020.80
+
 * Tue Jun 16 2020 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for new ED25519_PRIV_FILENAME option
 
