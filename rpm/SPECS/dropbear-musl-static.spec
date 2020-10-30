@@ -8,7 +8,7 @@
 %define	debug_package	%{nil}
 
 Name:		%{spname}-musl-static
-Version:	2020.80
+Version:	2020.81
 Release:	18%{?dist}
 Summary:	%{spname} compiled with musl-static
 
@@ -95,6 +95,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Thu Oct 29 2020 ryan woodsmall <rwoodsmall@gmail.com>
+- dropbear 2020.81
+
 * Tue Oct 20 2020 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.2.1
 
