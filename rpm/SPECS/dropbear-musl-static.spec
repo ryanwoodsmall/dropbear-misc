@@ -9,7 +9,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2020.81
-Release:	19%{?dist}
+Release:	20%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -19,7 +19,7 @@ Source0:	https://matt.ucc.asn.au/dropbear/releases/%{spname}-%{version}.tar.bz2
 Source1:	https://raw.githubusercontent.com/ryanwoodsmall/%{spname}-misc/master/options/%{spname}-%{version}_localoptions.h
 Source2:	https://sortix.org/libz/release/libz-%{libzver}.tar.gz
 
-BuildRequires:	musl-static >= 1.2.1-1
+BuildRequires:	musl-static >= 1.2.2-1
 BuildRequires:	gcc
 BuildRequires:	make
 BuildRequires:	which
@@ -95,6 +95,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Fri Jan 15 2021 ryan woodsmall <rwoodsmall@gmail.com>
+- release bump for musl 1.2.2
+
 * Wed Dec 30 2020 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl CVE-2020-28928
 
