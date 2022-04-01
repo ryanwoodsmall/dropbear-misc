@@ -1,3 +1,8 @@
+#
+# XXX - move from libz to (new) zlib
+# XXX - reenable x11 forwarding after DROPBEAR_CHANNEL_PRIO_INTERACTIVE issue is defined
+#
+
 %define	spname		dropbear
 %define	instdir		/opt/%{spname}
 %define	profiled	%{_sysconfdir}/profile.d
@@ -8,7 +13,7 @@
 %define	debug_package	%{nil}
 
 Name:		%{spname}-musl-static
-Version:	2020.81
+Version:	2022.82
 Release:	20%{?dist}
 Summary:	%{spname} compiled with musl-static
 
@@ -95,6 +100,10 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Fri Apr 1 2022 ryanwoodsmall <rwoodsmall@gmail.com>
+- dropbear 2022.82
+- disable x11 forwarding for now
+
 * Fri Jan 15 2021 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.2.2
 
