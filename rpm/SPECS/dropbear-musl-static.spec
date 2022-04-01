@@ -1,6 +1,9 @@
 #
 # XXX - move from libz to (new) zlib
 # XXX - reenable x11 forwarding after DROPBEAR_CHANNEL_PRIO_INTERACTIVE issue is defined
+# XXX - disable twofish
+# XXX - DEBUG_TRACE setting for -v
+# XXX - sha1?
 #
 
 %define	spname		dropbear
