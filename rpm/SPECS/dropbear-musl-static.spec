@@ -2,7 +2,6 @@
 # XXX - move from libz to (new) zlib
 # XXX - reenable x11 forwarding after DROPBEAR_CHANNEL_PRIO_INTERACTIVE issue is defined
 # XXX - disable twofish
-# XXX - DEBUG_TRACE setting for -v
 # XXX - sha1?
 #
 
@@ -17,7 +16,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2022.82
-Release:	20%{?dist}
+Release:	21%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -103,6 +102,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Sat Apr 2 2022 ryanwoodsmall <rwoodsmall@gmail.com>
+- bump release to enable DEBUG_TRACE config
+
 * Fri Apr 1 2022 ryanwoodsmall <rwoodsmall@gmail.com>
 - dropbear 2022.82
 - disable x11 forwarding for now
