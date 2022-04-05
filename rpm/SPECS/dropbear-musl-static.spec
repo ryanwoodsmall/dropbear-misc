@@ -16,7 +16,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2022.82
-Release:	21%{?dist}
+Release:	22%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -102,6 +102,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Tue Apr 5 2022 ryanwoodsmall <rwoodsmall@gmail.com>
+- bump release to disable DEBUG_TRACE again
+
 * Sat Apr 2 2022 ryanwoodsmall <rwoodsmall@gmail.com>
 - bump release to enable DEBUG_TRACE config
 
