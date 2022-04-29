@@ -16,7 +16,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2022.82
-Release:	22%{?dist}
+Release:	23%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -26,7 +26,7 @@ Source0:	https://matt.ucc.asn.au/dropbear/releases/%{spname}-%{version}.tar.bz2
 Source1:	https://raw.githubusercontent.com/ryanwoodsmall/%{spname}-misc/master/options/%{spname}-%{version}_localoptions.h
 Source2:	https://sortix.org/libz/release/libz-%{libzver}.tar.gz
 
-BuildRequires:	musl-static >= 1.2.2-1
+BuildRequires:	musl-static >= 1.2.3-1
 BuildRequires:	gcc
 BuildRequires:	make
 BuildRequires:	which
@@ -102,6 +102,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Fri Apr 29 2022 ryan woodsmall <rwoodsmall@gmail.com>
+- release bump for musl 1.2.3
+
 * Tue Apr 5 2022 ryanwoodsmall <rwoodsmall@gmail.com>
 - bump release to disable DEBUG_TRACE again
 
