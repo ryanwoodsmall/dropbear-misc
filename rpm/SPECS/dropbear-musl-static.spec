@@ -5,6 +5,8 @@
 # XXX - sha1?
 #
 
+%global debug_package	%{nil}
+
 %define	spname		dropbear
 %define	instdir		/opt/%{spname}
 %define	profiled	%{_sysconfdir}/profile.d
@@ -16,7 +18,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2022.82
-Release:	23%{?dist}
+Release:	24%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -102,6 +104,10 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Sat Aug 20 2022 ryanwoodsmall
+- turn off debug
+- fix some date(s)
+
 * Fri Apr 29 2022 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.2.3
 
@@ -127,7 +133,7 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 * Tue Oct 20 2020 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.2.1
 
-* Fri Jun 27 2020 ryan woodsmall <rwoodsmall@gmail.com>
+* Sat Jun 27 2020 ryan woodsmall <rwoodsmall@gmail.com>
 - dropbear 2020.80
 
 * Tue Jun 16 2020 ryan woodsmall <rwoodsmall@gmail.com>
