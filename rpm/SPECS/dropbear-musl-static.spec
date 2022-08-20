@@ -33,9 +33,6 @@ BuildRequires:	gcc
 BuildRequires:	make
 BuildRequires:	which
 
-#Obsoletes:	%{spname}
-#Conflicts:	%{spname}
-
 Provides:	%{spname}
 Provides:	%{name}
 
@@ -107,6 +104,7 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 * Sat Aug 20 2022 ryanwoodsmall
 - turn off debug
 - fix some date(s)
+- remove commented macros, which break in rhel >= 8
 
 * Fri Apr 29 2022 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.2.3
