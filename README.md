@@ -10,3 +10,4 @@ todo
   * c7 requires pam, doesn't work well/at all with static
   * chromium is key-auth only
 * setup custom known hosts file in **cli-kex.c** (```dbear_hosts```?)
+* move bundled sortix libz to zlib-ng from github
