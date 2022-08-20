@@ -48,6 +48,7 @@ Dropbear is particularly useful for "embedded"-type Linux (or other Unix) system
 %setup -q -n %{spname}-%{version}
 
 %build
+. /etc/profile
 tar -zxf %{SOURCE2}
 cd %{libzdir}
 ./configure \
@@ -84,6 +85,7 @@ make %{?_smp_mflags} MULTI=1 SCPPROGRESS=1 PROGRAMS="dropbear dbclient dropbeark
 
 
 %install
+. /etc/profile
 make install MULTI=1 SCPPROGRESS=1 PROGRAMS="dropbear dbclient dropbearkey dropbearconvert scp" DESTDIR="%{buildroot}"
 ln -sf %{instdir}/bin/dbclient %{buildroot}%{instdir}/bin/ssh
 mkdir -p %{buildroot}%{instdir}/etc
@@ -105,6 +107,7 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 - turn off debug
 - fix some date(s)
 - remove commented macros, which break in rhel >= 8
+- source profile for musl-static
 
 * Fri Apr 29 2022 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.2.3
