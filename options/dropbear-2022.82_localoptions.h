@@ -25,3 +25,5 @@
 #define DEFAULT_PATH "/usr/local/bin:/usr/bin:/bin:/opt/dropbear/current/bin"
 #define SFTPSERVER_PATH "/usr/libexec/openssh/sftp-server"
 //#define DEBUG_TRACE 4
+#define DROPBEAR_DH_GROUP1 1
+//# DROPBEAR_DH_GROUP1_CLIENTONLY 0

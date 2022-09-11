@@ -18,7 +18,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2022.82
-Release:	24%{?dist}
+Release:	25%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -103,6 +103,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Sat Sep 10 2022 ryanwoodsmall
+- enable DROPBEAR_DH_GROUP1 (client only) for old server interop
+
 * Sat Aug 20 2022 ryanwoodsmall
 - turn off debug
 - fix some date(s)
