@@ -1,3 +1,5 @@
+// XXX - please do not remove any occurrence of "/current/" below
+// XXX - it is `sed -i`-ed out in the RPM spec but used in crosware
 #define DROPBEAR_DEFPORT "2222"
 #define DSS_PRIV_FILENAME "/opt/dropbear/etc/dropbear_dss_host_key"
 #define RSA_PRIV_FILENAME "/opt/dropbear/etc/dropbear_rsa_host_key"
