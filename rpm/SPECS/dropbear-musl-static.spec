@@ -17,7 +17,7 @@
 %define	debug_package	%{nil}
 
 Name:		%{spname}-musl-static
-Version:	2022.82
+Version:	2022.83
 Release:	25%{?dist}
 Summary:	%{spname} compiled with musl-static
 
@@ -103,6 +103,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Mon Nov 14 2022 ryanwoodsmall
+- dropbear 2022.83
+
 * Sat Sep 10 2022 ryanwoodsmall
 - enable DROPBEAR_DH_GROUP1 (client only) for old server interop
 
