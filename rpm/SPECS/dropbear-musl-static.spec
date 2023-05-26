@@ -18,7 +18,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2022.83
-Release:	26%{?dist}
+Release:	27%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -26,7 +26,8 @@ License:	MIT
 URL:		https://matt.ucc.asn.au/dropbear/dropbear.html
 Source0:	https://matt.ucc.asn.au/dropbear/releases/%{spname}-%{version}.tar.bz2
 Source1:	https://raw.githubusercontent.com/ryanwoodsmall/%{spname}-misc/master/options/%{spname}-%{version}_localoptions.h
-Source2:	https://sortix.org/libz/release/libz-%{libzver}.tar.gz
+#Source2:	https://sortix.org/libz/release/libz-%{libzver}.tar.gz
+Source2:	https://github.com/ryanwoodsmall/crosware-source-mirror/raw/master/sortix/libz/libz-%{libzver}.tar.gz
 
 BuildRequires:	musl-static >= 1.2.4-0
 BuildRequires:	gcc
@@ -105,6 +106,7 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 %changelog
 * Thu May 25 2023 ryanwoodsmall
 - musl 1.2.4
+- get libz archive from mirror
 
 * Mon Nov 14 2022 ryanwoodsmall
 - dropbear 2022.83
