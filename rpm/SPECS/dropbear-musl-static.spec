@@ -1,5 +1,4 @@
 #
-# XXX - move from libz to (new) zlib
 # XXX - reenable x11 forwarding after DROPBEAR_CHANNEL_PRIO_INTERACTIVE issue is defined
 # XXX - disable twofish
 # XXX - sha1?
@@ -11,8 +10,8 @@
 %define	instdir		/opt/%{spname}
 %define	profiled	%{_sysconfdir}/profile.d
 
-%define	libzver		1.2.8.2015.12.26
-%define	libzdir		libz-%{libzver}
+%define	zlibngver	2.0.7
+%define	zlibngdir	zlib-ng-%{zlibngver}
 
 %define	debug_package	%{nil}
 
@@ -26,7 +25,7 @@ License:	MIT
 URL:		https://matt.ucc.asn.au/dropbear/dropbear.html
 Source0:	https://matt.ucc.asn.au/dropbear/releases/%{spname}-%{version}.tar.bz2
 Source1:	https://raw.githubusercontent.com/ryanwoodsmall/%{spname}-misc/master/options/%{spname}-%{version}_localoptions.h
-Source2:	https://sortix.org/libz/release/libz-%{libzver}.tar.gz
+Source2:	https://github.com/zlib-ng/zlib-ng/archive/refs/tags/%{zlibngver}.tar.gz
 
 BuildRequires:	musl-static >= 1.2.4-0
 BuildRequires:	gcc
@@ -50,16 +49,15 @@ Dropbear is particularly useful for "embedded"-type Linux (or other Unix) system
 %build
 . /etc/profile
 tar -zxf %{SOURCE2}
-cd %{libzdir}
-./configure \
-  --prefix=`pwd`-built \
-  --enable-shared=no \
-  --disable-shared \
-  --enable-static \
-  --enable-static=yes \
-    CC="musl-gcc" \
-    CFLAGS="-Wl,-static" \
-    LDFLAGS="-static"
+cd %{zlibngdir}
+env \
+  CC="musl-gcc" \
+  CFLAGS="-Wl,-static" \
+  LDFLAGS="-static"
+    ./configure \
+      --prefix=`pwd`-built \
+      --static \
+      --zlib-compat
 make %{?_smp_mflags}
 make install
 cd ..
@@ -76,7 +74,7 @@ sed -i.ORIG 's#/current/#/#g' localoptions.h
   --disable-pututxline \
   --enable-bundled-libtom \
   --disable-pam \
-  --with-zlib=`pwd`/%{libzdir}-built \
+  --with-zlib=`pwd`/%{zlibngdir}-built \
   --enable-static \
     CC="musl-gcc" \
     CFLAGS="-Wl,-static" \
@@ -105,6 +103,7 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 %changelog
 * Thu May 25 2023 ryanwoodsmall
 - musl 1.2.4
+- move from sortix libz to zlib-ng zlib compat mode
 
 * Mon Nov 14 2022 ryanwoodsmall
 - dropbear 2022.83
