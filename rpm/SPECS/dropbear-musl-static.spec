@@ -18,7 +18,7 @@
 
 Name:		%{spname}-musl-static
 Version:	2022.83
-Release:	25%{?dist}
+Release:	26%{?dist}
 Summary:	%{spname} compiled with musl-static
 
 Group:		Applications/Internet
@@ -28,7 +28,7 @@ Source0:	https://matt.ucc.asn.au/dropbear/releases/%{spname}-%{version}.tar.bz2
 Source1:	https://raw.githubusercontent.com/ryanwoodsmall/%{spname}-misc/master/options/%{spname}-%{version}_localoptions.h
 Source2:	https://sortix.org/libz/release/libz-%{libzver}.tar.gz
 
-BuildRequires:	musl-static >= 1.2.3-1
+BuildRequires:	musl-static >= 1.2.4-0
 BuildRequires:	gcc
 BuildRequires:	make
 BuildRequires:	which
@@ -103,6 +103,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Thu May 25 2023 ryanwoodsmall
+- musl 1.2.4
+
 * Mon Nov 14 2022 ryanwoodsmall
 - dropbear 2022.83
 
