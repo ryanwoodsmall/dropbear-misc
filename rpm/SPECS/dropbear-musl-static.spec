@@ -17,7 +17,7 @@
 %define	debug_package	%{nil}
 
 Name:		%{spname}-musl-static
-Version:	2024.84
+Version:	2024.85
 Release:	27%{?dist}
 Summary:	%{spname} compiled with musl-static
 
@@ -98,6 +98,9 @@ echo 'export PATH="${PATH}:%{instdir}/bin"'  >> %{buildroot}%{profiled}/%{name}.
 
 
 %changelog
+* Thu Apr 26 2024 ryanwoodsmall
+- dropbear 2024.85
+
 * Wed Apr 10 2024 ryanwoodsmall
 - dropbear 2024.84
 - musl 1.2.5
